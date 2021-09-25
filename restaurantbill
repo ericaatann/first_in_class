@@ -1,1 +1,33 @@
+//calculate the total 
+// determine the tax amount
+// determine the tip amount
+//determine how much the meal costs
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+    time_t t;
+    int array[4] = {995, 455, 1325, 2235};
+    srand((unsigned) time(&t));
+
+    
+    int mealCost = array[rand() % 4];
+    printf("meal cost: $%.2f\n", ((double)mealCost / 100.0));
+
+    float tax;
+    scanf("%f", &tax);
+    float taxAmnt = (tax * mealCost) / 100.0;
+    printf("Tax amount: $%.2f\n", taxAmnt/100.0);
+
+    float tip; 
+    scanf("%f", &tip);
+    float tipAmnt = (mealCost * tip) / 100.0;
+    printf("Tip amount: $%.2f\n", tipAmnt/100.0);
+
+    float totalBill = mealCost + taxAmnt + tipAmnt;
+    printf("Total bill amount: $%.2f\n", totalBill/100.0);
+    
+    return 0;
+}
