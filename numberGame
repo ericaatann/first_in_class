@@ -1,1 +1,82 @@
+//create a menu with options 1 2 3
+//option 1 have to ask for user input for a number
+//if 'q' pressed, should return to menu
+//option 2, tells the max value they can set the number
+//option 3, thank the user and end game
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+int main()
+{
+    int num, guess = -1, opt;
+    int totalMaxValue = 10;
+    int userSelectedMax; 
+
+    srand(time(0));
+    //generates a rand number between 1-10
+    num = rand() % 10 + 1;
+
+    //menu 1-3 is here
+    int exitUI = 0;
+    int state = 0;
+
+
+    printf("Press 1 to play a game\n");
+    printf("Press 2 to change the max number\n");
+    printf("Press 3 to quit\n");
+
+    while (exitUI == 0)
+    {
+        scanf("%d", &opt);
+        
+        switch (opt)
+        {
+        case 0:
+            // main menu
+            break;
+        case 1:
+            while (guess != num)
+            {
+                printf("Enter a guess: ");
+                scanf("%d", &guess);
+
+                if (guess > num)
+                {
+                    printf("you guessed too high\n guess again\n");
+                }
+                if (guess < num)
+                {
+                    printf("you guessed too low\n Guess again\n");
+                }
+                if (guess == num)
+                {
+                    printf("you guessed the correct number\n Go back to the menu\n");
+                    break;
+                }
+                if (guess == 'q')
+                {
+                    break;
+                }
+            }
+            break;
+        case 2:
+            ;
+            int input;
+            printf("The max number you can set is 10.");
+            scanf("%d", &input);
+            while(input < 0 || input > totalMaxValue)
+            {
+                printf("Bad input. Try again: ");
+                scanf("%d", &input);
+            }
+            userSelectedMax = input;
+            break;
+        case 3:
+            printf("Thank you for playing!");
+            exitUI = 1;
+            break;
+        }
+    }
+    return 0;
+}
