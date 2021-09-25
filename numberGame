@@ -21,13 +21,11 @@ int main()
     int exitUI = 0;
     int state = 0;
 
-
-    printf("Press 1 to play a game\n");
-    printf("Press 2 to change the max number\n");
-    printf("Press 3 to quit\n");
-
     while (exitUI == 0)
     {
+        printf("Press 1 to play a game\n");
+        printf("Press 2 to change the max number\n");
+        printf("Press 3 to quit\n");
         scanf("%d", &opt);
         
         switch (opt)
@@ -71,6 +69,7 @@ int main()
                 scanf("%d", &input);
             }
             userSelectedMax = input;
+            printf("New max: %d\n", input);
             break;
         case 3:
             printf("Thank you for playing!");
