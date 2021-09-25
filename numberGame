@@ -37,6 +37,12 @@ int main()
             while (guess != num)
             {
                 printf("Enter a guess: ");
+                char input[2];
+                scanf("%s", input);
+                if(input == "q") {
+                    break;
+                }
+                guess = atoi(input);
                 scanf("%d", &guess);
 
                 if (guess > num)
@@ -50,10 +56,6 @@ int main()
                 if (guess == num)
                 {
                     printf("you guessed the correct number\n Go back to the menu\n");
-                    break;
-                }
-                if (guess == 'q')
-                {
                     break;
                 }
             }
